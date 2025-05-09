@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ProductController@index');
+Route::get('/', [ProductController::class, 'statusApiCron']);
 
 //Atualiza um produto da base de dados
 Route::put('/products/{id}', [ProductController::class, 'updateProduct']);

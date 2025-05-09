@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('openfood:import')->dailyAt('23:00'); // sempre ao final do dia 
     }
 
     /**

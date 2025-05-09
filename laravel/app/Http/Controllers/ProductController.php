@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImportHistory;
 use App\Models\ProductModel;
 use Exception;
 use Illuminate\Http\Request;
@@ -42,6 +43,16 @@ class ProductController extends Controller {
         try{
             ProductModel::updateProduct($code, $request->all());
             return response()->json('Produto atualizado com sucesso!');
+        }
+        catch(Exception $e){
+            return response()->json($e);
+        }
+    }
+
+    public function statusApiCron(){ 
+        try{
+            $apiStatus = ImportHistory::all();
+            return response()->json($apiStatus);
         }
         catch(Exception $e){
             return response()->json($e);
